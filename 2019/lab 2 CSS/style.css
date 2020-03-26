@@ -1,0 +1,96 @@
+div.c1{
+    color:yellow; 
+    background-color: blue; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 17pt; 
+    font-style: arial; 
+    text-align: left;
+}
+
+div.c2 {
+    color: wheat;
+    background: darkblue; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 17pt; 
+    font-style: arial; 
+    float: right; 
+    padding: 5px; 
+    margin: 0;
+   /* margin-left: 850px; /* img 500 + borders 14 */
+   }
+
+#circle1, #circle2,#circle3 {
+    position: absolute;
+    top: 600px;
+    left: 800px;
+    height: 500px;
+    width: 500px; 
+    margin: 1em auto;
+    border-radius: 50%;
+}
+#circle1 {
+    background: yellow;
+}
+#circle2 {
+    top: 50px;
+    left: 50px;
+    background: orange;
+}
+#circle3 {
+    top: 50px;
+    left: 50px;
+    background: red;
+}
+/*--------------Variant 3---------------------*/
+.form {
+    top: 125px;
+    left: 75px;
+    position: relative;
+    display: inline-block;
+    padding: 25px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.form__field {
+    margin-bottom: 10px;
+}
+
+.form__error {
+    color: red;
+    text-align: left;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+    display: none;
+}
+
+.form input {
+    outline: none;
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid gray;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 2px;
+    border: 0;
+    background-color: gray;
+    color: #fff;
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: greenyellow;
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: red;
+}
+input:invalid:not(:placeholder-shown) + .form__error {
+    display: block;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.12.2.js'></script>
+</style>
+</head>
+<body>
+
+<center>
+<font class="text">
+<b>
+<table border="1", width= "80%">
+    <tbody>
+    <tr>
+        <th>s_id</th>
+        <th>s_name</th>
+        <th>DATE_OBS</th>
+        <th>TMPMAX</th>
+        <th>q</th>
+        <th>TMPMIN</th>
+        <th>q</th>
+        <th>mid</th>
+        <th>q</th>
+        <th>precip</th>
+        <th>q</th>
+        <th>d</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>1999.09.09</td>
+        <td>10</td>
+        <td></td>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>1988.12.12</td>
+        <td>-1</td>
+        <td></td>
+        <td>-10.5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+     <tr>
+        <td></td>
+        <td></td>
+        <td>1977.07.17</td>
+        <td>25.6</td>
+        <td></td>
+        <td>12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+     <tr>
+        <td></td>
+        <td></td>
+        <td>1966.06.06</td>
+        <td>35.6</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>20</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+    </tbody>
+</table>
+</b>
+</font>
+</center>
+
+<a href="https://knureigs.github.io/itech/lb/ITech1_Lab3/ITech1_Lab3_2_5_meteo_kh.htm">Table</a>
+<br>
+<script>
+javascript: (function() {
+    var table = document.getElementsByTagName('table');
+    var max = parseFloat(table[0].rows[1].cells[3].innerHTML);
+    var dataMax = table[0].rows[1].cells[2].innerHTML;
+    var min = 0;
+    var dataMin = table[0].rows[1].cells[2].innerHTML;
+    var xMax = 0;
+    var xMin = 0;
+    for (var i = 1; i < table[0].rows.length; i++) {
+        var minI = parseFloat(table[0].rows[i].cells[5].innerHTML);
+        var maxI = parseFloat(table[0].rows[i].cells[3].innerHTML);
+        var midI = parseFloat(table[0].rows[i].cells[7].innerHTML);
+        if (maxI != NaN && minI != NaN ) {
+            if (max < maxI) {
+                max = maxI;
+                dataMax = table[0].rows[i].cells[2].innerHTML;
+            }
+            if (min > minI) {
+                min = minI;
+                dataMin = table[0].rows[i].cells[2].innerHTML;
+            }
+        }
+        if (maxI == NaN && minI !=NaN) {
+            xMax = midI * 2 - minI;
+            if (max < xMax) {
+                max = xMax;
+                dataMax = table[0].rows[i].cells[2].innerHTML;
+            }
+            if (min > minI) {
+                min = minI;
+                dataMin = table[0].rows[i].cells[2].innerHTML;
+            }
+        }
+        if (maxI != NaN && minI ==NaN) {
+            xMin = midI * 2 - maxI;
+            if (max < maxI) {
+                max = maxI;
+                dataMax = table[0].rows[i].cells[2].innerHTML;
+            }
+            if (min > xMin) {
+                min = xMin;
+                dataMin = table[0].rows[i].cells[2].innerHTML;
+            }
+        }
+        if (maxI == NaN && minI == NaN) {
+            continue;
+        }
+    }
+    alert("Date " + dataMax + "   - maximal temperature: " + max + " deg");
+    alert("Date " + dataMin + "   - minimal temperature: " + min + " deg");
+})();
+</script>
+    <input type="button"  value="Search min and max temperature" onclick="SearchTemp()">
+</body>
+</html>

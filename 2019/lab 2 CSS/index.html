@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 2</title>
+    <style type="text/css">
+     * {  margin: 0; padding: 0;  }
+        body {  background: darkcyan; color:brown}
+        h1, h2{color:yellow;  background-color:darkslategrey; text-align: center}
+        h1{font-size: 45pt;}
+        h2{font-size: 30pt;}        
+        #p1{color:orange; font-family: Arial, Helvetica, sans-serif; background-color: rebeccapurple; font-size: 17pt; }
+        #t1{float:left; color:dimgray; background-color: whitesmoke;
+            font-family: Arial, Helvetica, sans-serif; font-size: 24pt; 
+            text-align: center; vertical-align: middle;  }
+   </style>
+<link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+        <h1>Пачиси</h1>
+        <span style="color: black; font-size: 17pt;"> 
+            Пачиси (хинди पचीसी; от «пачис» — «двадцать пять») — настольная игра, появившаяся в Индии 
+            более 4000 лет назад. Представляет собой игровое поле в виде креста, по которому игрок перемещает фишки. 
+            Количество клеток, на которые перемещается фишка, определяется броском пяти, шести или семи раковин каури. Считается национальной игрой Индии.
+        </span>
+    <h2>История</h2>
+    <div id="p1">
+        Первые описание и игровые принадлежности пачиси датируются по индийским источникам и 
+        результатам археологических раскопок третьим тысячелетием до нашей эры. Исключение составляет 
+        игровое поле, современный вид которого известен не ранее чем с XVI века. Более поздние предметы,
+         которые можно рассматривать в качестве игрового поля пачиси, также известны с третьего тысячелетия 
+         до нашей эры, но отличаются по форме: это могут быть как изображённое на камне поле, так и рисунок, 
+         выполненный на ткани. Одной из версий игры, имеющей столь же древнее происхождение, является чаупар.
+     </div>
+    <h2>Правила игры</h2>
+    <div class = "c1">
+        В пачиси могут играть два, три или четыре человека. При игре вчетвером игроки обычно образуют две команды.
+        В наиболее распространённом варианте пачиси каждый игрок получает четыре фишки, отличающиеся цветом. 
+        Перед началом игры они устанавливаются в центральном квадрате игрового поля. Задача игрока — первым 
+        обойти всеми фишками всё поле. В свой ход игрок бросает шесть раковин каури, а затем определяет, сколько 
+        очков он заработал, считая количество раковин, лежащих отверстием вверх. Выбросив шесть и более очков, 
+        игрок получает право на дополнительный бросок. 
+    </div>
+    <div id="t1">
+        <table>
+            <tr>
+                <td>Каури</td>
+                <td>Очки</td>
+                <td>Дополнительный бросок</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>25</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>+</td>
+            </tr>
+       <tr>
+           <td>2</td>
+            <td>2</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>4</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>5</td>
+           <td>5</td>
+           <td>-</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>6</td>
+            <td>+</td>
+        </tr>
+        <img src="img/Pachisi.jpg" alt="loading image..." width="600px" height="600px" border="3px">
+    </table>
+</div>
+<div class = "c2">
+    После броска можно передвигать только одну фишку, 
+    находящуюся на поле. Чтобы ввести в игру дополнительную фишку, нужно выбросить не менее 6 очков. 
+    Если в перемещение фишки заканчивается в клетке, где стоит фишка другого игрока, чужая фишка возвращается 
+    в центральный квадрат, исключение составляют особые клетки-«за́мки». Обход поля заканчивается возвращением 
+    в центральный квадрат, при этом игрок обязан выбросить точно количество очков.
+    </div>
+    <div id="circle1"><div>
+    <div id="circle2"><div>
+    <div id="circle3"><div>
+<form action="#" class="form">
+        <div class="form__field">
+            <input type="text" name="name" placeholder="Имя" pattern="^[А-Яа-яЁё\s]+$" required />
+            <span class="form__error">Это должно содержать буквы в формате Андрей</span>
+        </div>
+        <div class="form__field">
+            <input type="email" name="name" placeholder="E-Mail" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+            <span class="form__error">Это должно содержать E-Mail в формате google@gmail.com</span>
+        </div>
+        <div class="form__field">
+            <input type="url" name="name" placeholder="Ссылка на соцсеть/сайт" pattern="https?://.+" />
+            <span class="form__error">Это поле должно содержать URL в формате http://google.com</span>
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

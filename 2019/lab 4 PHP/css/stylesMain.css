@@ -1,0 +1,61 @@
+body {font-family: Verdana, sans-serif;
+    background: black;}
+div.werty {margin: 0 auto; width: 800px; background-color: greenyellow}
+
+#l {
+width: 720px; 
+margin-top: 30px;
+padding: 30px 20px 30px 40px;
+text-align: justify;}
+
+
+#bottom {
+width: 740px;
+background-color: green;
+margin: 35px 0 0 0;
+border-top: 3px solid brown;
+padding: 20px 30px 20px 30px;
+line-height: 180%;
+text-align: center;
+font-size: 10px
+}
+
+#header {
+height: 130px;
+width: 800px;
+margin: 0;
+padding: 0;
+background: green;
+border-bottom: 5px solid brown
+}
+
+#header h2 {padding-top:45px}
+ul.nav {
+display: block;
+margin: 0;
+padding: 0 0 0px 20px;
+list-style-type: none
+}
+
+ul.nav li {background-color: darkslategray; display: inline; padding: 0}
+ul.nav li a:link, ul.nav li a:visited, ul.nav li a:active {
+background-color: darkslategray;
+padding: 5px 15px 5px 15px;
+color: white;
+text-decoration: none;
+border-top: 5px solid brown;
+border-bottom: 5px solid brown;
+}
+
+ul.nav li a:hover {
+background-color: white;
+padding: 5px 15px 5px 15px;
+color: darkgreen;
+text-decoration: none;
+border-top: 5px solid brown;
+border-bottom: 5px solid brown;
+}
+
+#list {margin-left: 30px}
+a:link {color: blue}
+a:visited {color: purple}

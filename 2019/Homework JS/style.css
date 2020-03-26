@@ -1,0 +1,86 @@
+* {
+	background-color: mediumturquoise;
+	box-sizing: border-box;
+}
+
+.title {
+	display: block;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 60px;
+}
+
+.statistic{
+	position: relative;
+	margin: 0px auto 50px;
+	padding: 0px 0px;
+	font-size: 40px;
+	text-align: center;	
+	border: 1px solid black;
+	display: flex;
+	width: 750px;
+}
+
+#winX{
+	background-color: white;
+	width: 250px;
+}
+
+#countGames{
+	background-color: white;
+	width: 250px;
+}
+
+#winO{
+	background-color: white;
+	width: 250px;
+}
+
+.game {
+	font-size: 60px;
+	display: flex; /*for 3x3 on x */
+	flex-wrap: wrap; /*for 3x3 on y*/
+	width: 302px; /*borders +2px */
+	border: 1px solid black;
+	margin: 0 auto 50px;
+}
+
+.cell {
+	color: white;
+	position: relative;
+	width: 100px;
+	height: 100px;
+	line-height: 98px;
+	border: 1px solid black;
+	background-color: white;
+	text-align: center;
+}
+
+.cell:hover {
+	cursor: pointer;
+	background-color:  rgb(180, 180, 180)
+}
+
+.cell.o {
+	background-color: black
+}
+
+.cell.x {
+	background-color: black
+}
+
+#reset {
+	font-size: 25px;
+	width: 300px;
+	height: 50px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	border: 1px solid black;
+	display: block;
+	background-color: white;
+	/* transition: 0.9s ease all; */
+}
+
+#reset:hover {
+	background-color: tomato;
+}
