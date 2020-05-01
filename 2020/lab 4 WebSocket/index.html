@@ -1,0 +1,85 @@
+<!DOCTYPE>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Lab 4</title>
+    <style>
+        body{
+            background: #282828;
+        }
+        h1, h2, h3{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h1>Chat</h1>
+    </div>
+    <div class="row" align="center">
+        <div class="col-6">
+            <h3>Form</h3>
+            <form id="messForm">
+                <label for="name"></label>
+                <input type="text" name="name" id="name" placeholder="Input name" class="form-control">
+                <br>
+                <label for="message"></label>
+                <textarea name="message" id="message" class="form-control" placeholder="Input message"></textarea>
+                <br>
+                <input type="submit" value="Send" style="width: 100%;" class="btn btn-info">
+            </form>
+        </div>
+        <div class="col-6">
+            <h3>Messages</h3>
+            <div align="left" id="all_mess"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var min = 0;
+    var max = 4;
+    var r = Math.floor(Math.random() * (max - min));
+
+    var rnd_color;
+
+    switch(r){
+        case 0:rnd_color = "danger"; break;
+        case 1:rnd_color = "success"; break;
+        case 2:rnd_color = "info"; break;
+        case 3:rnd_color = "warning"; break;
+        case 4:rnd_color = "secondary"; break;
+    }
+
+    $(function() {
+        var socket = io.connect();
+        var $form = $("#messForm");
+        var $textarea = $("#message");
+        var $all_messages = $("#all_mess");
+        var $name = $("#name");
+
+        $form.submit(function(event){
+            event.preventDefault();
+            socket.emit('send mess', {mess: $textarea.val(), name: $name.val(), color: rnd_color});
+            $textarea.val('');
+        });
+
+        socket.on('add mess', function(data){
+            if(data.name  == ''){
+                console.log("User dosn`t set name");
+            }
+            else{
+                $all_messages.append("<div class='alert alert-" + data.color + "'><b>"+ data.name + "</b>: " + data.mess + "</div>");
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
