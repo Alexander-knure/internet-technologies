@@ -4,10 +4,11 @@ $res = $dbh -> prepare("SELECT `week_day`,`lesson_number`,`auditorium`,`disciple
                         INNER JOIN lesson_groups ON lesson.ID_Lesson = lesson_groups.FID_Lesson2
                         INNER JOIN lesson_teacher ON lesson_teacher.FID_Lesson1 = lesson.ID_Lesson
                         INNER JOIN teacher ON lesson_teacher.FID_Teacher = teacher.ID_Teacher
-                        WHERE lesson_groups.FID_Groups={$_POST['group']}
+                        WHERE lesson_groups.FID_Groups={$_GET['group']}
                         ");
-echo '<table border="1">','<tr><th>week_day</th><th>lesson_number</th><th>auditorium</th><th>disciple</th><th>name</th><th>type</th>';
+
 $res->execute();
+
 while($row = $res -> fetch(PDO::FETCH_ASSOC))
 { 
         echo '<tr>  <td>',$row['week_day'],'</td>',
@@ -18,5 +19,4 @@ while($row = $res -> fetch(PDO::FETCH_ASSOC))
                    '<td>',$row['type'],'</td>',
              '</tr>';   
 }
-echo '</table><br><a href="MainPage.php">Back</a>';
 ?>

@@ -30,9 +30,12 @@ $dbh->query($q);
 
 $isOK = $dbh->commit();
 if($isOK != 0)
+{
     echo '<br>New row added';
+}
 else
+{
     echo '<br>Error in transaction';
-
+}
 echo '<br><a href="MainPage.php">Back</a>';
 ?>

@@ -5,7 +5,7 @@
     $database = "iteh2lb1var2";
     $dsn = "$db_driver:host=$host; dbname=iteh2lb1var2";
     $username = "root";    
-    $password = "";
+    $password = "root";
     $options = array(PDO::ATTR_PERSISTENT => true, PDO:: MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
    
     try 
