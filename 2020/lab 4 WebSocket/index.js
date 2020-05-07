@@ -3,14 +3,15 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+users=[];
+connections=[];
+
 server.listen(3000);
 
 app.get('/', function(request, respons){
  respons.sendFile(__dirname + '/index.html');
 });
 
-users=[];
-connections=[];
 
 io.sockets.on('connection', function(socket){
     console.log("Successful connection");
