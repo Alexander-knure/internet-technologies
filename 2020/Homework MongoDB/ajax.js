@@ -43,6 +43,21 @@ function CustomForm() {
     ajax.send();
 }
 
+function EditForm() {
+    let ajax = new XMLHttpRequest();
+
+    let frm = document.getElementById("form4").value;
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `EditForm.php?`);
+    ajax.send();
+}
+
 function SearchForm() {
     let ajax = new XMLHttpRequest();
 
@@ -57,85 +72,99 @@ function SearchForm() {
     ajax.open('GET', `SearchForm.php?`);
     ajax.send();
 }
-
-
-
-function AuditoriumQuery() {
+//////////////////////////////////////////////////////////////////////////////////////////
+function AddKeyValueForm() {
     let ajax = new XMLHttpRequest();
-    let aud = document.getElementById('auditoriumSelect').value;
 
-    ajax.onload = () => {
-        let result = document.getElementById(`auditoriumTable`);
-        result.innerHTML = '';
-
-        let response = ajax.responseText;
-
-        if (response == null) {
-            return;
+    //let key = document.getElementById("Key" + 1).value;
+    //let value = document.getElementById("Value" + 1).value;
+    let number = document.getElementById("inputNumber").value;
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedCustomForm").innerHTML = ajax.responseText;
         }
-        console.log(response);
-        let data = JSON.parse(response);
+    };
 
+    ajax.open('GET', `KeyValueForm.php?number=${number}`);
 
-        let table = document.createElement('tbody');
-        let tr = document.createElement('tr');
-        let th = document.createElement('th');
-        th.innerText = 'week_day';
-        tr.appendChild(th);
-
-        th = document.createElement('th');
-        th.innerText = 'lesson_number';
-        tr.appendChild(th);
-
-        th = document.createElement('th');
-        th.innerText = 'disciple';
-        tr.appendChild(th);
-
-        th = document.createElement('th');
-        th.innerText = 'name';
-        tr.appendChild(th);
-
-        th = document.createElement('th');
-        th.innerText = 'group';
-        tr.appendChild(th);
-
-        th = document.createElement('th');
-        th.innerText = 'type';
-        tr.appendChild(th);
-        table.appendChild(tr);
-        data.forEach(element => {
-            tr = document.createElement('tr');
-
-            let td = document.createElement('td');
-            td.innerText = element.week_day;
-            tr.appendChild(td);
-
-            td = document.createElement('td');
-            td.innerText = element.lesson_number;
-            tr.appendChild(td);
-
-            td = document.createElement('td');
-            td.innerText = element.disciple;
-            tr.appendChild(td);
-
-            td = document.createElement('td');
-            td.innerText = element.name;
-            tr.appendChild(td);
-
-            td = document.createElement('td');
-            td.innerText = element.title;
-            tr.appendChild(td);
-
-            td = document.createElement('td');
-            td.innerText = element.type;
-            tr.appendChild(td);
-
-            table.appendChild(tr);
-        });
-        result.appendChild(table);
-    }
-
-
-    ajax.open('GET', `AuditoriumQuery.php?aud=${aud}`);
     ajax.send();
+}
+
+function DeleteTableForm() {
+    let ajax = new XMLHttpRequest();
+
+    let key = document.getElementById("inlineDeleteFormKey").value;
+    let value = document.getElementById("inlineDeleteFormValue").value;
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedEditForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `deleteTable.php?key=${key}&value=${value}`);
+    ajax.send();
+}
+
+function EditTableForm() {
+    let ajax = new XMLHttpRequest();
+
+    let key = document.getElementById("inlineEditFormKey").value;
+    let value = document.getElementById("inlineEditFormValue").value;
+    let changeValue = document.getElementById("inlineEditFormChangeValue").value;
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedEditForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `editTable.php?key=${key}&value=${value}&changeValue=${changeValue}`);
+    ajax.send();
+}
+
+function SearchNameForm() {
+    let ajax = new XMLHttpRequest();
+
+    let name = document.getElementById("inlineSearchFormSelect").value;
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedTableForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `searchName.php?name=${name}`);
+    ajax.send();
+}
+
+function SearchKeyValueForm() {
+    let ajax = new XMLHttpRequest();
+    let key = document.getElementById("inlineSearchFormkey").value;
+    let value = document.getElementById("inlineSearchFormvalue").value;
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedTableForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `searchKeyValue.php?key=${key}&value=${value}`);
+    ajax.send();
+    countForms++;
+}
+
+function AddTableForm() {
+    let ajax = new XMLHttpRequest();
+
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            document.getElementById("choosedTableForm").innerHTML = ajax.responseText;
+        }
+    };
+
+    ajax.open('GET', `TableForm.php?`);
+
+    ajax.send();
+    countForms++;
 }

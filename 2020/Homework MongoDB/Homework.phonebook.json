@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "5ec128fa3c4900003f005937"
+  },
+  "name": "Alexander",
+  "phone": "0663176209",
+  "lastname": "Tereshchenko",
+  "email": "alex202202202@gmail.com",
+  "address": "ул. Железнякова",
+  "address2": "118",
+  "SomeKey": " "
+},{
+  "_id": {
+    "$oid": "5ec129463c4900003f005938"
+  },
+  "name": "David",
+  "lastname": "Fisher",
+  "phone": "057436344",
+  "SomeKey": "ZZZ"
+}]

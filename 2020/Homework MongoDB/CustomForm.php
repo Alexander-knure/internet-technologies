@@ -1,25 +1,23 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
 $collection = (new MongoDB\Client)->Homework->phonebook;
+
 ?>
 </div>
-<form class="needs-validation" novalidate>
+<hr class="mb-4">
     <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="Key">Название поля</label>
-            <input type="text" class="form-control" id="Key" placeholder="" value="" required>
-            <div class="invalid-feedback">
-                Valid key is required.
-            </div>
+            <div class="col-10">
+             <input class="form-control" type="number" min="1" max="10" value="1" id="inputNumber">
+         </div>
         </div>
-        <div class="col-md-6 mb-3">
-            <label for="Value">Значение</label>
-            <input type="tel" class="form-control" id="Value" placeholder="" value="" required>
-            <div class="invalid-feedback">
-                Valid value is required.
-            </div>
-        </div>
+    <div class="col-md-6 mb-3">
+        <input class="btn btn-primary btn-lg btn-block mb-5" name="addForms" type="submit"
+        value="Добавить форму ключ-значение" onClick="AddKeyValueForm()"/>
     </div>
-    </div>
-    <hr class="mb-4">
-    <button class="btn btn-primary btn-lg btn-block mb-5" type="submit">Добавить</button>
+</div>
+
+
+
+</div>
+    <div id="choosedCustomForm"></div>

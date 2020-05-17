@@ -1,9 +1,9 @@
-<?php
-require_once __DIR__ . "/vendor/autoload.php";
+<?php require_once __DIR__ . "/vendor/autoload.php";
 $collection = (new MongoDB\Client)->Homework->phonebook;
 ?>
 </div>
-<form class="needs-validation" action="SimpleForm.php" method="get" novalidate>
+<hr class="mb-4">
+<form class="needs-validation" action="addNumber.php" method="get" novalidate>
     <div class="row">
         <div class="col-md-6 mb-3">
             <label for="Name">Имя</label>
@@ -22,13 +22,4 @@ $collection = (new MongoDB\Client)->Homework->phonebook;
     </div>
     </div>
     <hr class="mb-4">
-    <button class="btn btn-primary btn-lg btn-block mb-5" type="submit">Добавить</button>
-
-<?php
-
-$doc = array("name" => $_GET['name'],
-   "phone" => $_GET['phone']
-);
-
-$collection->insert($doc);
-?>
+    <button class="btn btn-primary btn-lg btn-block mb-5" type="submit">Добавить контакт</button>
